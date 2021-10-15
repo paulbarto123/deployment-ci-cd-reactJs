@@ -11,33 +11,22 @@ on:
       - uat
 
 jobs:
-  run-linter: 
+  run-linters: 
     name: run-linters
     runs-on: ${{ matrix.os }}
-
-#env
-    strategi: 
+    strategy: 
       matrix:
         os: [ubuntu-latest]
-        # node: [13.x, 14.x, 15.x]
-# deploy:
+        # node: [13.x, 14.x, 15.x] # A step is a sequence of tasks
+    steps:
+      - name: Checkout git repository
+        uses: actions/checkout@v2
+    # - name: Setup node env
+    #   uses: actions/setup-node@v2.1.2
+    #   with: 
+    #   node-versiion: ${{ matrix.node }}
+      - name: install dependencies
+        uses: npm install
 
-# check:
-
-  # google:
-
-# A step is a sequence of tasks
-steps:
-  - name: Checkout git repository
-    uses: actions/checkout@v2
-
-  # - name: Setup node env
-  #   uses: actions/setup-node@v2.1.2
-  #   with: 
-  #   node-versiion: ${{ matrix.node }}
-
-  - name: install dependencies
-    uses: npm install
-
-  - name: run linter
-    uses: npm run lint
+      - name: run linter
+        uses: npm run lint
