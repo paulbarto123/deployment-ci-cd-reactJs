@@ -1,0 +1,43 @@
+.sider {
+    background-color: #027AF5;
+    min-height: 100vh;
+    padding-top: 35px;
+}
+.menu_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-size: 32px;
+    font-style: bold;
+    color: #fff;
+    padding-left: 0px;
+}
+.logo img {
+    width: 200px;
+    height: 70px;
+    padding-right: 0;
+}
+.sider_icon {
+    background-color: #027AF5;
+    margin: 0;
+    padding: 0;
+}
+.trigger {
+    margin-right: 10px;
+    margin-left: 0;
+    font-size: 25px;
+    padding-right: 0;
+    color: #fff;
+}
+.menu_item {
+    color: #fff;
+    font-size: 15px;
+}
+.site_content {
+    margin: 24px 16px;
+    min-height: 750;
+    padding: 24px;
+    margin-bottom: 0;
+}

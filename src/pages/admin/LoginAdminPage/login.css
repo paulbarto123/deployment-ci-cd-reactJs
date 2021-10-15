@@ -1,0 +1,131 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginWrapper {
+    width: 70%;
+    height: 90%;
+    min-height: 90%;
+    display: flex;
+    background: #027af5;
+    box-shadow: 10px 20px 20px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+}
+
+.loginLeft,
+.loginRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.loginLeft {
+    margin-left: 50px;
+    color: #fff;
+}
+
+.loginLogo {
+    font-size: 50px;
+    font-weight: 900;
+    line-height: 75px;
+    letter-spacing: 0.02em;
+}
+
+.loginDesc {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    margin-right: 10px;
+}
+
+.loginRight {
+    background: #ecf0f1;
+    border-radius: 0px 20px 20px 0px;
+}
+
+.loginBox {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.loginBoxTextHed {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    color: #2a2a2a;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.loginBoxTextSub {
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    color: #676767;
+    font-style: normal;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.loginInput {
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-size: 18px;
+    padding-left: 20px;
+    margin: 15px 40px 0 40px;
+}
+
+.loginInput:focus {
+    outline: none;
+}
+
+.loginButton {
+    height: 61px;
+    border: 1px solid #036edb;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #027af5;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 15px 40px 0 40px;
+    cursor: pointer;
+    cursor: pointer;
+}
+
+.loginForgot {
+    text-align: center;
+    color: #027af5;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    padding: 10px 0 10px 0;
+}
+
+.loginRegisterButton {
+    width: 60%;
+    align-self: center;
+    height: 61px;
+    background: #3ab19b;
+    border: 1px solid #319582;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}

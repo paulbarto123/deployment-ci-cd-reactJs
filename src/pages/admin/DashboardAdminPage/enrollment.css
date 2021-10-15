@@ -1,0 +1,21 @@
+.approve {
+    float: right;
+    margin-top: 40px;
+} 
+
+.approve_button {
+    background-color: #3AB19B;
+    width: 161px;
+    height: 43px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 20px;
+    font-style: bold;
+    text-align: center;
+}
+
+.approve_button:hover {
+    background-color: #289883;
+}
