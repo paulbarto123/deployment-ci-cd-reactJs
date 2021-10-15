@@ -13,10 +13,12 @@ on:
 jobs:
   run-linters: 
     name: run-linters
-    runs-on: ${{ matrix.os }}
+    runs-on: [ubuntu-latest]
+
     strategy: 
       matrix:
         os: [ubuntu-latest]
+
     steps:
       - name: Checkout git repository
         uses: actions/checkout@v2
