@@ -3,13 +3,13 @@ const useCreateProject = (project, onSuccess, onError) => {
   const { mutate, data, isLoading, isError } = useMutation(
     async () => {
       const response = await fetch(`http://localhost:5000/myProjectData`, {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        method: "POST", 
         headers: {
           "Content-Type": "application/json"
         },
-        redirect: "follow", // manual, *follow, error
-        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(project), // body data type must match "Content-Type" header
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify(project),
       });
       if (!response.ok) {
         throw new Error("Network response was not ok");

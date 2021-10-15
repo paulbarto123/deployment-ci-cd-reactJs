@@ -29,7 +29,6 @@ const SidebarAdminComponent = (props) => {
         <div className="menu_header">
           {collapse ? null : (
             <div className="logo">
-              <img/>
             </div>
           )}
 

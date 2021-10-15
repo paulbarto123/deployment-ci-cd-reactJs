@@ -21,7 +21,6 @@ import AuthorizedRoute from "../src/auth/AuthorizedRoute";
 import RestrictedWrapper from "../src/auth/RestrictedWrapper";
 import { AuthorizedContextProvider } from "../src/auth/AuthorizedContext";
 
-// Create a client
 const queryClient = new QueryClient();
 
 function App() {

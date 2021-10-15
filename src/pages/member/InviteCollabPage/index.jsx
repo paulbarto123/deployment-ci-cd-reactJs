@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Divider, Row, Col, Button, Modal } from "antd";
 import SidebarMemberComponent from "../../../components/SidebarMemberComponent";
 import useGetCollabInvitation from "../../../api/useGetCollabInvitation";

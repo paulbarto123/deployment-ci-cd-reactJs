@@ -21,8 +21,6 @@ const PostArticlePage = () => {
   };
 
   const { mutate } = useCreateArticle(formState, (result) => {
-    //console.log(formState);
-    //console.log("success mutation >> ", result);
     history.replace("/member/artikel-saya");
   });
 
@@ -68,7 +66,6 @@ const PostArticlePage = () => {
             rows={4}
             onChange={(value) => {
               setFormState({ ...formState, detail: value.target.value });
-             // console.log(value.target.value);
             }}
           />
         </Form.Item>

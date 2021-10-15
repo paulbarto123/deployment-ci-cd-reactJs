@@ -118,7 +118,6 @@ const CreateProjectPage = () => {
         onValuesChange={onFormLayoutChange}
         size={componentSize}
       >
-        {/* kategori project */}
         <Form.Item label="Kategori Project" name="category-option" rules={[{ required: true, message: "Please choose your category" }]}>
           <Select
             placeholder="Pilih Topik"
@@ -138,7 +137,6 @@ const CreateProjectPage = () => {
           </Select>
         </Form.Item>
 
-        {/* name project */}
         <Form.Item label="Nama Project" name="nameproject" rules={[{ required: true, message: "Please input your name project" }]}>
           <Input
             onChange={(value) => {
@@ -147,7 +145,6 @@ const CreateProjectPage = () => {
           />
         </Form.Item>
 
-        {/* start date */}
         <Form.Item label="Tanggal Mulai" name="startdate" rules={[{ required: true, message: "Please input your start date" }]}>
           <DatePicker
             onChange={(value) => {
@@ -159,7 +156,6 @@ const CreateProjectPage = () => {
           />
         </Form.Item>
 
-        {/* link trello */}
         <Form.Item label="Link Trello" name="linktrello" rules={[{ required: true, message: "Please input your link trello" }]}>
           <Input
             onChange={(value) => {
@@ -168,7 +164,6 @@ const CreateProjectPage = () => {
           />
         </Form.Item>
 
-        {/* project description */}
         <Form.Item label="Deskripsi Project" name="projectdesc" rules={[{ required: true, message: "Please input your project desciption" }]}>
           <TextArea
             rows={4}
@@ -178,7 +173,6 @@ const CreateProjectPage = () => {
           />
         </Form.Item>
 
-        {/* invite member */}
         <Form.Item label="Undang Member" name="invitemember" rules={[{ required: true, message: "Please invite your members" }]}>
           <Divider />
           <div>

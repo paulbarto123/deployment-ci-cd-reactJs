@@ -4,7 +4,7 @@ const useDeleteArticle = (deleteId, onSuccess, onError) => {
   const { mutate, data, isLoading, isError } = useMutation(
     async () => {
       const response = await fetch(`http://localhost:5000/myArticleData/${deleteId}`, {
-        method: "DELETE", // *GET, POST, PUT, DELETE, etc.
+        method: "DELETE",
         headers: {
           "Content-Type": "application/json"
         },
