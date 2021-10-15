@@ -68,7 +68,7 @@ const DashboardAdminPage = () => {
               handleUpdateStatus(record);
             }}
           >
-            <a href="#">Approve</a>
+            <button href="#">Approve</button>
           </Popconfirm>
         ) : null,
     },
