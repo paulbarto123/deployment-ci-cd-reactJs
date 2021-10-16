@@ -31,7 +31,7 @@ export default function LoginMemberPage() {
           <Title level={3} className="loginLogo">
             Bank Name
           </Title>
-          <span className="loginDesc">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+          <span className="loginDesc">Lorem ipsum, dolor sit amet consectetur adipisicing elit consectetur dolor .</span>
         </div>
         <div className="loginRight">
           <div className="loginBox">
@@ -39,7 +39,7 @@ export default function LoginMemberPage() {
               Selamat Datang di Co-Create
             </Title>
             <Title level={5} className="loginBoxTextSub">
-              Silahkan login, untuk memulai
+              Silahkan login, untuk memulai 
             </Title>
             <Form name="basic" labelCol={{ span: 4 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
               <Form.Item label="Username" name="username" align="middle" rules={[{ required: true, message: "Please input your username!" }]}>
