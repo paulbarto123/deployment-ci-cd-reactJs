@@ -1,19 +1,17 @@
-name: 'Deploy with vercel'
+name: "Deploy"
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - main
-      - development
-      - staging
-      - uat
-      - production
-    workflow_dispatch:
+      - master
+      - dev
+  workflow_dispatch:
 
 jobs:
-  vercel: 
+  vercel:
     runs-on: ubuntu-latest
-    name: "deploy react app with vercel"
+    name: "Deploy front-end"
 
     steps:
       - uses: actions/checkout@v2
@@ -22,16 +20,14 @@ jobs:
           node-version: '14'
           registry-url: https://registry.npmjs.org/
 
-      - name: "deploy to vercel"
+      - name: "Deploy to Vercel"
         run: |
           prodRun=""
-          if [[ ${GITHUB_REF} == "refs/heads/main"]]; then
+          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
             prodRun="--prod"
           fi
-
           npx vercel --token ${VERCEL_TOKEN} $prodRun
-
-        env: 
+        env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
