@@ -20,5 +20,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "test-ci-cd-003"
+          heroku_app_name: "deployment-ci-cd-react-js"
           heroku_email: "paulbart171098@gmail.com"
