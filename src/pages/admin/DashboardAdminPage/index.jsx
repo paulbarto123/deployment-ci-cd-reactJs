@@ -17,10 +17,6 @@ const DashboardAdminPage = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState([]);
   const [enrolmentState, setEnrollmentState] = useState({
     user_ids: [],
-    //tanggalRegistrasi: "",
-    // nama_lengkap: "",
-    // //status: "",
-    // topik_diminati: "",
   });
   console.log("enrollmentData >>", data);
 
@@ -31,44 +27,23 @@ const DashboardAdminPage = () => {
       dataIndex: "id_user",
       key: "id_user"
     },
-    // {
-    //   title: "Tanggal Registrasi",
-    //   dataIndex: "tanggalRegistrasi",
-    //   defaultSortOrder: "descend",
-    //   sorter: (a, b) => a.tanggalRegistrasi.length - b.tanggalRegistrasi.length,
-    // },
     {
      
       title: "Nama",
       dataIndex: "nama_lengkap",
       key: "nama_lengkap"
-      //defaultSortOrder: "descend",
-     // sorter: (a, b) => a.nama_lengkap.length - b.nama_lengkap.length,
     },
     {
       
       title: "Topik Diminati",
       dataIndex: "topik_diminati",
-      //defaultSortOrder: "ascend",
       key: "topik_diminati",
-     // sorter: (a, b) => a.nama_lengkap.length - b.nama_lengkap.length,
     },
     {
       title: 'Status',
       dataIndex: '',
       key: 'x',
       render: () => <p>Menunggu Approval</p>
-      // filters: [
-      //   {
-      //     text: "Menunggu Approval",
-      //     value: "Menunggu Approval",
-      //   },
-      //   {
-      //     text: "Approved",
-      //     value: "Approved",
-      //   },
-      //],
-      // onFilter: (value, record) => record.status.indexOf(value) === 0,
     },
     {
       title: "approval",
@@ -112,10 +87,6 @@ const DashboardAdminPage = () => {
     setEnrollmentState({
       ...enrolmentState,
       user_ids: [...enrolmentState.user_ids, record.id_user],
-      //tanggalRegistrasi: record.tanggalRegistrasi,
-      //nama_lengkap: record.nama_lengkap,
-      //status: "Approved",
-     // topik_diminati: record.topik_diminati,
     });
     console.log("enrolmentState >>", enrolmentState);
   };
@@ -128,11 +99,6 @@ const DashboardAdminPage = () => {
     selectedRowKeys,
     onChange: onSelectChange,
   };
-  // const tableColumns = columns.map((item) => ({
-  //   ...item,
-  //   ellipsis: tables.ellipsis,
-  // }
-  // ));
   return (
     <>
       <SidebarAdminComponent>
@@ -144,30 +110,6 @@ const DashboardAdminPage = () => {
           </>
         ) : 
           (
-            
-            // data.results.map((items) => (
-            //   <>
-            //     <Checkbox
-            //         onChange={() => {
-            //           setEnrollmentState({
-            //             ...enrolmentState,
-            //             user_ids:[...enrolmentState.user_ids, items.id_user],
-            //           });
-            //           console.log("new Form State >> ", enrolmentState);
-            //         }}
-            //       >
-            //         {items.id_user}
-            //       </Checkbox>
-            //       <Space>
-            //         {" "}
-            //         <p>{items.nama_lengkap}</p>
-            //         <p>{items.topik_diminati}</p>
-            //       </Space>
-            //  <Divider />
-            //  </>
-            // ))
-
-           
               <Table
               key={data.results.id_user}
               rowKey={data.results.id_user}
