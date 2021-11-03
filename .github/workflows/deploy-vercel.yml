@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  vercel:
+  vercel: 
     runs-on: ubuntu-latest
     name: "Deploy front-end"
-
+    
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -26,6 +26,7 @@ jobs:
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
             prodRun="--prod"
           fi
+
           npx vercel --token ${VERCEL_TOKEN} $prodRun
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
