@@ -21,6 +21,7 @@ import AuthorizedRoute from "../src/auth/AuthorizedRoute";
 import RestrictedWrapper from "../src/auth/RestrictedWrapper";
 import { AuthorizedContextProvider } from "../src/auth/AuthorizedContext";
 
+// Create a client
 const queryClient = new QueryClient();
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
                 <LoginAdminPage />
               </RestrictedWrapper>
             </Route>
+            <Route path="/login" component={LoginMemberPage} />
             <Route path="/register" component={RegisterPage} />
             <Route path="/member/artikel-saya" component={ArticlePage} />
             <AuthorizedRoute
