@@ -1,24 +1,24 @@
-name: 'Deploy with herokiu'
+# name: 'Deploy with herokiu'
 
-on:
-  push:
-    branches:
-      - main
-      - master
-      - development
-      - staging
-      - uat
-      - production
+# on:
+#   push:
+#     branches:
+#       - main
+#       - master
+#       - development
+#       - staging
+#       - uat
+#       - production
 
-jobs:
-  build:
-    name: "deploy apps to heroku server"
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     name: "deploy apps to heroku server"
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: "deployment-ci-cd-react-js"
-          heroku_email: "paulbart171098@gmail.com"
+#     steps:
+#       - uses: actions/checkout@v2
+#       - uses: akhileshns/heroku-deploy@v3.12.12
+#         with:
+#           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+#           heroku_app_name: "deployment-ci-cd-react-js"
+#           heroku_email: "paulbart171098@gmail.com"

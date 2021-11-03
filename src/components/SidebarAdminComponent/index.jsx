@@ -1,47 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
-import "./sidebarAdmin.css";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UsergroupDeleteOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
-const { Sider, Content } = Layout;
+import { Link, useHistory } from "react-router-dom";
+
+import { useAuthorizedContext } from "../../auth/AuthorizedContext";
+import "../sidebar.css";
+
+const { Sider, Content, Header } = Layout;
 
 const SidebarAdminComponent = (props) => {
-  const [collapse, setCollapse] = React.useState(false);
+  const history = useHistory();
+  const [collapsed, setCollapsed] = useState(false);
+  const { setAuthorizedValue } = useAuthorizedContext();
+
+  const handleSignOutButton = React.useCallback(() => {
+    localStorage.removeItem("admin-token");
+    setAuthorizedValue(false);
+    history.push("login");
+  }, [setAuthorizedValue, history])
+
   const handleToggle = React.useCallback(() => {
-    setCollapse(!collapse);
-  }, [collapse]);
+    setCollapsed(!collapsed);
+  }, [collapsed]);
 
   return (
     <Layout>
       <Sider
-        width="300px"
-        className="sider"
+        className="layout_sider"
         trigger={null}
         collapsible
-        collapsed={collapse}
+        collapsed={collapsed}
       >
-        <div className="menu_header">
-          {collapse ? null : (
-            <div className="logo">
-            </div>
-          )}
-
-          <div className="site-layout-background sider_icon">
-            {React.createElement(
-              collapse ? MenuUnfoldOutlined : MenuFoldOutlined,
-              {
-                className: "trigger",
-                onClick: handleToggle,
-              }
-            )}
-          </div>
-        </div>
+        <div className="logo"></div>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item
             className="menu_item"
@@ -52,12 +48,19 @@ const SidebarAdminComponent = (props) => {
           </Menu.Item>
 
           <Menu.Item className="menu_item" key="2" icon={<LogoutOutlined />}>
-            <Link to="/">Keluar</Link>
+            <Link onClick={handleSignOutButton}>Keluar</Link>
           </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout">
-        <Content className="site-layout-background site_content">
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: "trigger",
+            onClick: handleToggle,
+          })}
+          Selamat Datang!
+        </Header>
+        <Content className="site-layout-background layout_content">
           {props.children}
         </Content>
       </Layout>
