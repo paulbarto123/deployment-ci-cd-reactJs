@@ -2,8 +2,8 @@ import React from "react";
 import { Divider, Tabs } from "antd";
 
 import SidebarMemberComponent from "../../../components/SidebarMemberComponent";
-import ArticleList from "./ArticleList";
-import ProjectList from "./ProjectList";
+import ArticleList from "./ArticleList.js";
+import ProjectList from "./ProjectList.js";
 
 const { TabPane } = Tabs;
 
