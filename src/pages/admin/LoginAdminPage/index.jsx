@@ -1,13 +1,27 @@
-import React from "react";
-import "./login.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Form, Input, Button, Card, Image } from "antd";
+import { UserOutlined, LockOutlined } from "@ant-design/icons";
+import "antd/dist/antd.css";
+import { Link, useHistory } from "react-router-dom";
+
 import { useAuthorizedContext } from "../../../auth/AuthorizedContext";
-import { useHistory } from "react-router-dom";
-import { Button, Form, Input, Typography } from "antd";
-const { Title } = Typography;
+import useLoginAdmin from "../../../Mutations/useLoginAdmin";
+import "./login.css";
+
 export default function LoginAdminPage() {
   const history = useHistory();
   const { setAuthorizedValue } = useAuthorizedContext();
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    login_as: 1,
+  });
+  const { mutate } = useLoginAdmin(data, (results) => {
+    if (results) {
+      localStorage.setItem("admin-token", JSON.stringify(results.results.token));
+      handleSignInButton();
+    }
+  });
 
   const handleSignInButton = React.useCallback(() => {
     setAuthorizedValue(true);
@@ -22,40 +36,66 @@ export default function LoginAdminPage() {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="login">
-      <div className="loginWrapper">
-        <div className="loginLeft">
-          <Title level={3} className="loginLogo">
-            Bank Name
-          </Title>
-          <span className="loginDesc">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
-        </div>
-        <div className="loginRight">
-          <div className="loginBox">
-            <Title level={4} className="loginBoxTextHed">
-              Selamat Datang di Co-Create
-            </Title>
-            <Title level={5} className="loginBoxTextSub">
-              Silahkan login, untuk memulai
-            </Title>
-            <Form name="basic" labelCol={{ span: 4 }} wrapperCol={{ span: 16 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
-              <Form.Item label="Username" name="username" align="middle" rules={[{ required: true, message: "Please input your username!" }]}>
-                <Input placeholder="Username" className="usernameInput" />
-              </Form.Item>
+    <Card className="card-login" style={{ width: "30%" }}>
+      <Form
+        name="basic"
+        className="login-form"
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+      >
+        {/* logo */}
+        <Form.Item style={{ textAlign: "center" }}>
+          <Image
+            width={150}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/BRI_2020.svg/1200px-BRI_2020.svg.png"
+          ></Image>
+        </Form.Item>
 
-              <Form.Item label="Password" name="password" align="middle" rules={[{ required: true, message: "Please input your password!" }]}>
-                <Input.Password placeholder="Password" className="passwordInput" />
-              </Form.Item>
+        {/* input username */}
+        <Form.Item
+          name="username"
+          rules={[{ required: true, message: "Please input your username!" }]}
+        >
+          <Input
+            prefix={<UserOutlined className="site-form-item-icon" />}
+            placeholder="Email"
+            onChange={(e) => {
+              setData({ ...data, email: e.target.value });
+            }}
+          />
+        </Form.Item>
 
-              <Link to="/beranda-admin">
-                <Button className="loginButton" onClick={handleSignInButton}>
-                  Masuk
-                </Button>
-              </Link>
-            </Form>
-          </div>
-        </div>
-      </div>
-    </div>
+        {/* input password */}
+        <Form.Item
+          name="password"
+          rules={[{ required: true, message: "Please input your password!" }]}
+        >
+          <Input.Password
+            prefix={<LockOutlined className="site-form-item-icon" />}
+            type="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setData({ ...data, password: e.target.value });
+            }}
+          />
+        </Form.Item>
+
+        {/* button masuk */}
+        <Form.Item>
+          <Link to="/beranda-admin">
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+              onClick={mutate}
+            >
+              Masuk
+            </Button>
+          </Link>
+        </Form.Item>
+      </Form>
+    </Card>
   );
 }
